@@ -1,0 +1,35 @@
+---
+- name: Remove lightdm
+  apt: pkg=lightdm state=absent
+  sudo: yes
+
+- name: Install packages
+  apt: pkg={{item}} state=installed
+  sudo: yes
+  with_items:
+  - matchbox
+  - x11-xserver-utils
+  - ttf-mscorefonts-installer
+  - sqlite3
+  - libnss3
+  - screen
+  - unclutter
+  - chromium
+
+  notify:
+  - Restart
+  - Wait for restart to finish
+
+- name: Update rc.local
+  template: src=rc.local dest=/etc/rc.local owner=root group=root mode="u=rwx,g=rx,o=rx" backup=yes
+  sudo: yes
+  notify:
+  - Restart
+  - Wait for restart to finish
+
+- name: Update xinitrc
+  template: src=xinitrc.j2 dest=/boot/xinitrc owner=root group=root mode="u=rwx,g=rx,o=rx" backup=yes
+  sudo: yes
+  notify:
+  - Restart
+  - Wait for restart to finish
