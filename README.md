@@ -7,8 +7,11 @@ Notes
 ------------
 
 * This role will remove `lightdm` and replace it with a lightweight alternative, `matchbox`.
+
 * This role installs the most recent version of Chromium available (22), which isn't very recent and is lacking in many features. If you can find a more recent version, a pull request would be more than welcome :)
+
 * If Chromium exits unexpectedly, it will be automatically restarted.
+
 * If you want to disable the automatic boot to Chromium, remove the file `/boot/xinitrc`. (The boot partition is formatted as FAT32, so you can insert your SD card into a computer to do this if necessary.)
 
   Note that `/boot/xinitrc` will be recreated if you re-run the role.
