@@ -20,7 +20,7 @@ fi
 # Start X
 if [ -f /boot/xinitrc ]; then
 	ln -fs /boot/xinitrc /home/{{ ansible_ssh_user }}/.xinitrc;
-	su - {{ ansible_ssh_user }} -c 'FRAMEBUFFER=/dev/fb1 startx' &
+	su - {{ ansible_ssh_user }} -c 'FRAMEBUFFER={{ framebuffer }} startx' &
 fi
 
 exit 0
