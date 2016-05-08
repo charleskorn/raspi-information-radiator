@@ -19,7 +19,8 @@ Notes
 Requirements
 ------------
 
-None. Will install all required packages (eg. Chromium).
+Chromium is only available with the older Raspbian Wheezy release. 
+I'm not actively using this at the moment, so I haven't updated it to work with the newer Jessie release.
 
 Role Variables
 --------------
